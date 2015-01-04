@@ -1,9 +1,13 @@
 'use strict';
 
 angular.module('noDJ').
-controller('mainCtrl', ['$scope', 
-	function($scope) {
-
+controller('mainCtrl', ['$scope', '$location',
+	function($scope, $location) {
+		switch ($location.search().error) {
+		case 'wrong_room_id':
+			$scope.error = 'Party Id not found.';
+			break;
+		}
 	}
 ]).
 controller('serverCtrl', ['$scope', '$timeout', '$rootScope', '$routeParams', '$location', 'MusicQueue',
@@ -64,12 +68,6 @@ controller('serverCtrl', ['$scope', '$timeout', '$rootScope', '$routeParams', '$
 		$scope.nextClicked = function() {
 			MusicQueue.playNext();
 		};
-		$scope.upvote = function(id) {
-			MusicQueue.upvote(id);
-		};
-		$scope.downvote = function(id) {
-			MusicQueue.downvote(id);
-		};
 
 		// progress bar
 		setInterval(function() {
@@ -87,12 +85,38 @@ controller('serverCtrl', ['$scope', '$timeout', '$rootScope', '$routeParams', '$
 		}, 1000);
 
 		$rootScope.$watch('currentTrack', function(newValue, oldValue) {
-			console.log(oldValue + ' -> ' + newValue);
-			console.dir(newValue);
 			if (newValue) {
 				$scope.youtubeVideoId = newValue.id;
-				console.log('set id: ' + newValue.id);
 			}
 		});
+	}
+]).
+controller('clientCtrl', ['$scope', '$timeout', '$rootScope', '$routeParams', '$location', 'MusicQueue',
+	function($scope, $timeout, $rootScope, $routeParams, $location, MusicQueue) {
+		$rootScope.roomId = $routeParams.roomId;
+		$rootScope.currentTrack = null;
+		$rootScope.queue = [];
+		MusicQueue.update(function(err) {
+			if (err) {
+				$location.path('/').search('error', 'wrong_room_id');
+			}
+		});
+
+		$scope.queueSorter = function(item) {
+			return -(item.upvotes-item.downvotes);
+		};
+
+		$scope.upvote = function(id) {
+			console.log('UP: ' + id);
+			MusicQueue.upvote(id);
+		};
+		$scope.downvote = function(id) {
+			MusicQueue.downvote(id);
+		};
+
+		// sync with server
+		setInterval(function() {
+			MusicQueue.update();
+		}, 1000);
 	}
 ]);

@@ -5,7 +5,7 @@ RoomStore = require('../models/RoomStore')
 router = express.Router()
 
 roomIdRegex = '[a-zA-Z]{5}'
-trackIdRegex = '[0-9]+'
+trackIdRegex = '[a-zA-Z0-9_]+'
 
 roomStore = new RoomStore()
 
@@ -64,7 +64,7 @@ router.post "^/rooms/:id(#{roomIdRegex})/tracks/?$", (req, res) ->
 # Response : RoomState
 router.post "^/rooms/:roomId(#{roomIdRegex})/tracks/:trackId(#{trackIdRegex})/upvote/?$", (req, res) ->
   roomId = req.params.roomId
-  trackId = _.parseInt req.params.trackId, 10
+  trackId = req.params.trackId
   try
     roomStore.upvoteTrack roomId, trackId
     res.send roomStore.getRoomState(roomId)
@@ -74,7 +74,7 @@ router.post "^/rooms/:roomId(#{roomIdRegex})/tracks/:trackId(#{trackIdRegex})/up
 # Response : RoomState
 router.post "^/rooms/:roomId(#{roomIdRegex})/tracks/:trackId(#{trackIdRegex})/downvote/?$", (req, res) ->
   roomId = req.params.roomId
-  trackId = _.parseInt req.params.trackId, 10
+  trackId = req.params.trackId
   try
     roomStore.downvoteTrack roomId, trackId
     res.send roomStore.getRoomState(roomId)

@@ -42,8 +42,8 @@ service('MusicQueue', ['$rootScope', '$timeout', '$http',
 				$rootScope.currentTrack = data.currentTrack;
 			});
 		}
-		function update() {
-			$http.get('/rooms/' + $rootScope.roomId).success(updateScope);
+		function update(err) {
+			$http.get('/rooms/' + $rootScope.roomId).success(updateScope).error(err);
 		}
 		function addTrack(track) {
 			$http({
