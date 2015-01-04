@@ -7,7 +7,7 @@
     "start" : "coffee main.coffee"
   },
   "dependencies": {
-    "coffee-script"       : "1.7.x",
+    "coffee-script"       : "1.8.x",
     "express"             : "4.x",
     "body-parser"         : "1.9.x",
     "lodash"              : "2.4.x",

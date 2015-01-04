@@ -1,7 +1,12 @@
 'use strict';
 
 angular.module('noDJ').
-controller('mainCtrl', ['$scope', '$timeout', '$rootScope', '$routeParams', '$location', 'MusicQueue',
+controller('mainCtrl', ['$scope', 
+	function($scope) {
+
+	}
+]).
+controller('serverCtrl', ['$scope', '$timeout', '$rootScope', '$routeParams', '$location', 'MusicQueue',
 	function($scope, $timeout, $rootScope, $routeParams, $location, MusicQueue) {
 		if ($routeParams.roomId === 'new') {
 			return $.post("/rooms", function(data) {

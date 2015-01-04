@@ -7,10 +7,16 @@ angular.module('noDJ', [
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
 	//$locationProvider.html5Mode(true);
 	$routeProvider.
-	when('/:roomId', {
+	when('/', {
 		templateUrl: 'main.html'
 	}).
+	when('/:roomId', {
+		templateUrl: 'server.html'
+	}).
+	when('/:roomId/client', {
+		templateUrl: 'client.html'
+	}).
 	otherwise({
-		redirectTo: '/new'
+		redirectTo: '/'
 	});
 }]);
