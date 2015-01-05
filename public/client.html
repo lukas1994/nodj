@@ -8,28 +8,37 @@
 		</div>
 	</div>
 
-	<div id="main-view">
-		<div id="player_dummy"></div>
+	<div id="main-view" class="container-fluid">
+		<div class="row">
+			<h1>Currently Playing: 
+				<span class="currentname">{{currentTrack.name}}</span>
+			</h1>
+		</div>
 
-		<h1>Currently Playing: <span class="currentname">{{currentTrack.name}}</span></h1>
-
-		<input type="text" search-song-autocomplete id="song_search" placeholder="Add track..." />
+		<div class="row">
+			<div class="col-md-12">
+				<input type="text" search-song-autocomplete id="song_search" placeholder="Add track..." />
+			</div>
+		</div>
 
 		<br>
 
-		<div class="item" ng-repeat="item in queue | orderBy: queueSorter | limitTo: 4" id="{{item.id}}">
-			<img class="thumbnail" ng-src="{{item.thumbnail}}" />
-			<span class="deets">
-				<div class="name">{{item.name}}</div>
-				<div class="artist">{{item.artist}}</div>
-			</span>
-			<input type="button" value="UP" ng-click="upvote(item.id)"/>
-			<input type="button" value="DOWN" ng-click="downvote(item.id)"/>
+		<br>
 
-			<span class="upvotes" ng-class="{'upvotes_green': item.upvotes > item.downvotes, 'upvotes_red': item.upvotes < item.downvotes}">
-				{{item.upvotes - item.downvotes}}
-			</span>
-			<div style="clear: both;"></div>
+		<div class="row">
+			<div class="item col-md-10" ng-repeat="item in queue | orderBy: queueSorter | limitTo: 4" id="{{item.id}}">
+				<img class="thumbnail" ng-src="{{item.thumbnail}}" />
+				<span class="deets">
+					<div class="name">{{item.name}}</div>
+				</span>
+				<input type="button" value="UP" ng-click="upvote(item.id)" ng-show="alreadyVoted(item.id)"/>
+				<input type="button" value="DOWN" ng-click="downvote(item.id)" ng-show="alreadyVoted(item.id)"/>
+
+				<span class="upvotes" ng-class="{'upvotes_green': item.upvotes > item.downvotes, 'upvotes_red': item.upvotes < item.downvotes}">
+					{{item.upvotes - item.downvotes}}
+				</span>
+				<div style="clear: both;"></div>
+			</div>
 		</div>
 	</div>
 </div>

@@ -102,16 +102,24 @@ controller('clientCtrl', ['$scope', '$timeout', '$rootScope', '$routeParams', '$
 			}
 		});
 
+		var votes = {};
+		$scope.alreadyVoted = function(id) {
+			return !votes[id];
+		};
+
 		$scope.queueSorter = function(item) {
 			return -(item.upvotes-item.downvotes);
 		};
 
 		$scope.upvote = function(id) {
-			console.log('UP: ' + id);
+			if (!!votes[id]) return;
 			MusicQueue.upvote(id);
+			votes[id] = true;
 		};
 		$scope.downvote = function(id) {
+			if (!!votes[id]) return;
 			MusicQueue.downvote(id);
+			votes[id] = true;
 		};
 
 		// sync with server

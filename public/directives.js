@@ -26,12 +26,19 @@ directive('searchSongAutocomplete', ['$rootScope', 'MusicQueue', 'SearchSong',
 						return false;
 					},
 					_resizeMenu: function() {
-					  this.menu.element.outerWidth(500);
+						var ul = this.menu.element;
+        				ul.outerWidth(this.element.outerWidth());
+						//this.menu.element.outerWidth(500);
 					}
 				})
-	    		.autocomplete("instance")._renderItem = function(ul, item) {
-	        		return $("<li>")
-	          			.append("<img class=\"dropthumbnail\" src=\"" + item.thumbnail_small + "\"/>" + "<a style=\"float: left;\"> <span class=\"dropname\">" + item.title + "</span><br><span class=\"dropartist\">" + item.title + "</span></a>")
+	    		.autocomplete('instance')._renderItem = function(ul, item) {
+	    			var data = 
+	    			   ['<img class="dropthumbnail" src="' + item.thumbnail_small + '"/>',
+	    				'<a>',
+	    				'  <span class="dropname">' + item.title + '</span>',
+	    				'</a>'].join('\n');
+	        		return $('<li>')
+	          			.append(data)
 	          			.appendTo(ul);
 	      		};
 	      		// search enter
