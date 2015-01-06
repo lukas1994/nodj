@@ -24,12 +24,12 @@ directive('searchSongAutocomplete', ['$rootScope', 'MusicQueue', 'SearchSong',
 	        			MusicQueue.addTrack(ui.item);
 
 						return false;
-					},
+					}/*,
 					_resizeMenu: function() {
 						var ul = this.menu.element;
         				ul.outerWidth(this.element.outerWidth());
 						//this.menu.element.outerWidth(500);
-					}
+					}*/
 				})
 	    		.autocomplete('instance')._renderItem = function(ul, item) {
 	    			var data = 
