@@ -35,12 +35,45 @@ html {
 }
 
 body {
+  height: 100%;
   min-height:100%;
   background: url('https://unsplash.imgix.net/21/shaggy.JPG?q=75&fm=jpg&s=2cce7b62caf40ee63ed9e86c1600f12e') no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+}
+
+.main_wrapper {
+  margin: 10%;
+
+  background-color: rgba(255,255,255,0.7);
+  font-family: 'Open Sans', sans-serif;
+  overflow: hidden;
+  display: block;
+  max-height: 500px;
+  height: 100%;
+  text-overflow: ellipsis;
+  text-align: center;
+}
+
+.main_wrapper a {
+  text-decoration: none;
+  color: rgb(30,30,30);
+  font-family: 'Open Sans', sans-serif;
+  font-size: 30px;
+  vertical-align: middle;
+}
+
+.create {
+  height: 50%;
+  width: 80%;
+  margin: 10%;
+}
+.join {
+  height: 50%;
+  width: 80%;
+  margin: 10%;
 }
 
 #header-wrap {

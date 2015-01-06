@@ -8,6 +8,16 @@ controller('mainCtrl', ['$scope', '$location',
 			$scope.error = 'Party Id not found.';
 			break;
 		}
+		delete $location.$$search.error;
+
+		$scope.room_id = '';
+
+		$scope.join = function() {
+			$location.path('/' + $scope.room_id + '/client');
+		}
+		$scope.create = function() {
+			$location.path('/new');
+		}
 	}
 ]).
 controller('serverCtrl', ['$scope', '$timeout', '$rootScope', '$routeParams', '$location', 'MusicQueue',

@@ -1,25 +1,40 @@
 <div id="wrapper" ng-controller="mainCtrl">	
-	<div id="header-wrap">
-		<div id="header">
-			<div id="logo"></div>
+	<div class="row">
+		<div class="col-md-12">
+			<div id="header-wrap">
+				<div id="header">
+					<div id="logo"></div>
+				</div>
+			</div>
 		</div>
 	</div>
 
-	<div id="main-view">
-		<center>
-			<p class="bg-danger" ng-show="error" ng-bind="error"></p>
-			<br>
-			<br>
-			<br>
-			<a href="/#/new">create new party</a>
-			<br>
-			<br>
-			<br>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="alert alert-danger" role="alert" ng-show="error" ng-bind="error"></div>
+		</div>
+	</div>
 
-			<input type="text" ng-init="room_id=''" ng-model="room_id"> <a ng-href="/#/{{room_id}}/client">join party</a>
-			<br>
+	<div id="row">
+		<div class="col-md-12">
+			<div class="main_wrapper">
 
-		</center>
+				<div class="create">
+					<button type="button" class="btn btn-default btn-lg" ng-click="create()">create new party</button>
+				</div>
+
+
+				<div class="join">
+					<div class="input-group">
+						<input type="text" class="form-control input-lg" placeholder="Party id" ng-init="" ng-model="room_id">
+						<span class="input-group-btn">
+							<button class="btn btn-default btn-lg" type="button" ng-click="join()">Join party!</button>
+						</span>
+					</div>
+				</div>
+				
+			</div>
+		</div>
 
 	</div>
 </div>
