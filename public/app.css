@@ -164,24 +164,45 @@ body {
 
 .thumbnail {
   display: block;
+  height: 70px;
   width: auto;
-  height: auto;
   max-width: 15%;
   float: left;
 }
 
 .deets {
-  width: 75%;
+  width: 65%;
   float: left;
   padding-left: 10px;
 }
 
-.upvotes {
+@mixin vertical-align {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+#voting {
   width: 10%;
-  float: right;
-  padding-top: 12px;
+  float: left;
+  font-size: 2em;
+  @include vertical-align;
+}
+.updownbutton {
+  
+}
+
+.votecount {
+  width: 10%;
+  float: left;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 17px;
   padding-right: 10px;
   font-size: 2em;
+  @include vertical-align;
 }
 
 .upvotes_green {
@@ -204,7 +225,7 @@ body {
   overflow: hidden;
 }
 
-.ui-autocomplete {
+/*.ui-autocomplete {
   position: absolute;
   top: 100%;
   left: 0;
@@ -241,17 +262,20 @@ body {
   line-height: 18px;
   color: #555555;
   white-space: nowrap;
-}
-.ui-autocomplete .ui-menu-item > a.ui-corner-all.ui-state-hover, .ui-autocomplete .ui-menu-item > a.ui-corner-all.ui-state-active {
-  color: #ffffff;
-  text-decoration: none;
-  background-color: #0088cc;
+}*/
+
+
+.ui-state-hover, 
+.ui-widget-content .ui-state-hover, 
+.ui-widget-header .ui-state-hover, 
+.ui-state-focus, 
+.ui-widget-content .ui-state-focus, 
+.ui-widget-header .ui-state-focus {
+  background: #EEEEEE;
   border-radius: 0px;
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
-  background-image: none;
 }
-
 
 
 .dropthumbnail {
@@ -263,10 +287,6 @@ body {
 .currentname {
   font-weight: 300;
   -webkit-font-smoothing: subpixel-antialiased;
-}
-
-.thumbnail {
-  height: 70px;
 }
 
 h1 {

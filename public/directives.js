@@ -24,12 +24,7 @@ directive('searchSongAutocomplete', ['$rootScope', 'MusicQueue', 'SearchSong',
 	        			MusicQueue.addTrack(ui.item);
 
 						return false;
-					}/*,
-					_resizeMenu: function() {
-						var ul = this.menu.element;
-        				ul.outerWidth(this.element.outerWidth());
-						//this.menu.element.outerWidth(500);
-					}*/
+					}
 				})
 	    		.autocomplete('instance')._renderItem = function(ul, item) {
 	    			var data = 
@@ -41,6 +36,11 @@ directive('searchSongAutocomplete', ['$rootScope', 'MusicQueue', 'SearchSong',
 	          			.append(data)
 	          			.appendTo(ul);
 	      		};
+	      		// fix width bug
+	      		jQuery.ui.autocomplete.prototype._resizeMenu = function () {
+				  var ul = this.menu.element;
+				  ul.outerWidth(this.element.outerWidth());
+				}
 	      		// search enter
 	      		$(elem).keypress(function(e) {
 	        		if(e.keyCode == 13) {

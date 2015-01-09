@@ -31,12 +31,15 @@
 				<span class="deets">
 					<div class="name">{{item.name}}</div>
 				</span>
-				<input type="button" value="UP" ng-click="upvote(item.id)" ng-show="alreadyVoted(item.id)"/>
-				<input type="button" value="DOWN" ng-click="downvote(item.id)" ng-show="alreadyVoted(item.id)"/>
 
-				<span class="upvotes" ng-class="{'upvotes_green': item.upvotes > item.downvotes, 'upvotes_red': item.upvotes < item.downvotes}">
-					{{item.upvotes - item.downvotes}}
-				</span>
+				<div id="voting">
+					<span class="glyphicon glyphicon-thumbs-up updownbutton" ng-click="upvote(item.id)" ng-show="alreadyVoted(item.id)"></span>
+					<br>
+					<span class="glyphicon glyphicon-thumbs-down updownbutton" ng-click="downvote(item.id)" ng-show="alreadyVoted(item.id)"></span>
+				</div>
+				<span class="votecount" ng-class="{'upvotes_green': item.upvotes > item.downvotes, 'upvotes_red': item.upvotes < item.downvotes}">
+						{{item.upvotes - item.downvotes}}
+					</span>
 				<div style="clear: both;"></div>
 			</div>
 		</div>
