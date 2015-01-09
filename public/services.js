@@ -10,6 +10,9 @@ service('SearchSong', ['$http', function($http) {
 				key: 'AIzaSyAi-zSFThCDRGmvv5SQPIqo5m0GnYzGVxw',
 				part: 'id,snippet',
 				q: query,
+				//channelId: 'UC-9-kyTW8ZkZNDHQJ6FgpwQ', // auto-generated
+													   //google music channel
+				videoCategoryId: '10',
 				safeSearch: 'none',
 				type:'video',
 				category: 'music',

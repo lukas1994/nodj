@@ -1,33 +1,6 @@
 /* app css stylesheet */
 
-.menu {
-  list-style: none;
-  border-bottom: 0.1em solid black;
-  margin-bottom: 2em;
-  padding: 0 0 0.5em;
-}
 
-.menu:before {
-  content: "[";
-}
-
-.menu:after {
-  content: "]";
-}
-
-.menu > li {
-  display: inline;
-}
-
-.menu > li:before {
-  content: "|";
-  padding-right: 0.3em;
-}
-
-.menu > li:nth-child(1):before {
-  content: "";
-  padding: 0;
-}
 
 html {
   height: 100%;
@@ -147,12 +120,11 @@ body {
   margin-top:1px;
   width: 100%;
   padding: 15px;
-  padding-left: 20px;
   background-color: rgba(255,255,255,0.7);
   font-family: 'Open Sans', sans-serif;
   overflow: hidden;
   display: block;
-  max-height: 100px;
+  height: 100px;
   text-overflow: ellipsis;
 }
 
@@ -162,26 +134,25 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-.thumbnail {
+.song_thumbnail {
   display: block;
   height: 70px;
-  width: auto;
+  width: 15%;
   max-width: 15%;
   float: left;
+
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 100%;
 }
 
 .deets {
   width: 65%;
   float: left;
   padding-left: 10px;
-}
-
-@mixin vertical-align {
-  position: relative;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
+  overflow: hidden;
+  line-height: 35px;
+  height: 70px;
 }
 
 #voting {
@@ -190,19 +161,14 @@ body {
   font-size: 2em;
   @include vertical-align;
 }
-.updownbutton {
-  
-}
 
 .votecount {
   width: 10%;
-  float: left;
-  margin-left: auto;
-  margin-right: auto;
-  padding-top: 17px;
-  padding-right: 10px;
+  height: 100%;
+  line-height: 70px;
+  float: right;
+  padding: auto;
   font-size: 2em;
-  @include vertical-align;
 }
 
 .upvotes_green {
@@ -286,6 +252,7 @@ body {
 
 .currentname {
   font-weight: 300;
+  font-size: 15px;
   -webkit-font-smoothing: subpixel-antialiased;
 }
 

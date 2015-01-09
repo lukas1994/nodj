@@ -27,7 +27,7 @@
 
 		<div class="row">
 			<div class="item col-md-10" ng-repeat="item in queue | orderBy: queueSorter | limitTo: 4" id="{{item.id}}">
-				<img class="thumbnail" ng-src="{{item.thumbnail}}" />
+				<div class="song_thumbnail" ng-style="{'background-image': 'url(' + item.thumbnail + ')'}"></div>
 				<span class="deets">
 					<div class="name">{{item.name}}</div>
 				</span>
@@ -39,7 +39,7 @@
 				</div>
 				<span class="votecount" ng-class="{'upvotes_green': item.upvotes > item.downvotes, 'upvotes_red': item.upvotes < item.downvotes}">
 						{{item.upvotes - item.downvotes}}
-					</span>
+				</span>
 				<div style="clear: both;"></div>
 			</div>
 		</div>
