@@ -25,12 +25,14 @@
 
 
 				<div class="join">
-					<div class="input-group">
-						<input type="text" class="form-control input-lg" placeholder="ID" ng-init="" ng-model="room_id">
-						<span class="input-group-btn">
-							<button class="btn btn-default btn-lg" type="button" ng-click="join()">Join party!</button>
-						</span>
-					</div>
+					<form ng-submit="join()">
+						<div class="input-group">
+							<input type="text" class="form-control input-lg" placeholder="ID" ng-init="" ng-model="room_id">
+							<span class="input-group-btn">
+								<button class="btn btn-default btn-lg" type="submit">Join party!</button>
+							</span>
+						</div>
+					</form>
 				</div>
 				
 			</div>
