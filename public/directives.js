@@ -28,9 +28,9 @@ directive('searchSongAutocomplete', ['$rootScope', 'MusicQueue', 'SearchSong',
 				})
 	    		.autocomplete('instance')._renderItem = function(ul, item) {
 	    			var data = 
-	    			   ['<img class="dropthumbnail" src="' + item.thumbnail_small + '"/>',
+	    			   ['<img class="drop_thumbnail" src="' + item.thumbnail_small + '"/>',
 	    				'<a>',
-	    				'  <span class="dropname">' + item.title + '</span>',
+	    				'  <span class="drop_name">' + item.title + '</span>',
 	    				'</a>'].join('\n');
 	        		return $('<li>')
 	          			.append(data)

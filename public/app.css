@@ -1,7 +1,4 @@
-/* app css stylesheet */
-
-
-
+/* general */
 html {
   height: 100%;
   min-height: 100%;
@@ -38,40 +35,30 @@ body {
   vertical-align: middle;
 }
 
-.create {
-  height: 50%;
-  width: 80%;
-  margin: 10%;
-}
-.join {
-  height: 50%;
-  width: 80%;
-  margin: 10%;
-}
-
+/* header */
 #header-wrap {
   background-color: rgb(32,30,35);
   width: 100%;
   padding: 15px;
 }
 
-#header {
-  height: 50px;
-  width: 100%;
-  max-width: 800px;
-  margin: auto;
-}
+  #header {
+    height: 50px;
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+  }
 
-#logo {
-  height: 120%;
-  background-image: url('logorino.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  float: left;
-  width: 200px;
-  /*margin-top: 3px;*/
-  margin-left: -20px;
-}
+  #logo {
+    height: 120%;
+    background-image: url('logorino.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    float: left;
+    width: 200px;
+    /*margin-top: 3px;*/
+    margin-left: -20px;
+  }
 
 #room-display {
   float:right;
@@ -85,9 +72,37 @@ body {
   font-weight: bold;
 }
 
+/* main page (create new room, join) */
+.create {
+  height: 50%;
+  width: 80%;
+  margin: 10%;
+}
+.join {
+  height: 50%;
+  width: 80%;
+  margin: 10%;
+}
+
+/* client and server */
 #main-view {
   max-width: 800px;
   margin: auto;
+}
+
+h1 {
+  padding-left: 5px;
+  font-family: 'Open Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: -1px;
+  font-weight: normal;
+  font-size: 1.6em;
+  color: rgb(30,30,30);
+}
+.currentname {
+  font-weight: 300;
+  font-size: 15px;
+  -webkit-font-smoothing: subpixel-antialiased;
 }
 
 #song_search {
@@ -98,87 +113,21 @@ body {
   font-family: 'Open Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
 }
-
-.control {
-  background: none;
-  border: none;
-  padding: 10px;
-  font-size: 1.4em;
-  display: inline-block;
-  color: rgba(0,0,0,0.75);
-}
-
-.control:hover{
-  color: rgba(0,0,0,1);;
-}
-
-#song_search:focus{
-  outline: none;
-}
-
-.item {
-  margin-top:1px;
-  width: 100%;
-  padding: 15px;
-  background-color: rgba(255,255,255,0.7);
-  font-family: 'Open Sans', sans-serif;
-  overflow: hidden;
-  display: block;
-  height: 100px;
-  text-overflow: ellipsis;
-}
-
-.name {
-  font-size: 1.5em;
-  margin-left: 10px;
-  -webkit-font-smoothing: antialiased;
-}
-
-.song_thumbnail {
-  display: block;
-  height: 70px;
-  width: 15%;
-  max-width: 15%;
-  float: left;
-
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: 100%;
-}
-
-.deets {
-  width: 65%;
-  float: left;
-  padding-left: 10px;
-  overflow: hidden;
-  line-height: 35px;
-  height: 70px;
-}
-
-#voting {
-  width: 10%;
-  float: left;
-  font-size: 2em;
-  @include vertical-align;
-}
-
-.votecount {
-  width: 10%;
+  #song_search:focus {
+    outline: none;
+  }
+.drop_thumbnail {
   height: 100%;
-  line-height: 70px;
-  float: right;
-  padding: auto;
-  font-size: 2em;
+  margin-right: 10px;
+  float:left;
 }
-
-.upvotes_green {
-  color: rgb(25,150,10);
+.drop_name {
+  line-height: 20px;
+  height: 40px;
+  font-size: 1em;
+  font-family: 'Open Sans', sans-serif;
 }
-.upvotes_red {
-  color: rgb(190,10,10);
-}
-
-.ui-menu .ui-menu-item a{
+.ui-menu .ui-menu-item a {
     height: auto;
 }
 
@@ -191,7 +140,7 @@ body {
   overflow: hidden;
 }
 
-/*.ui-autocomplete {
+.ui-autocomplete {
   position: absolute;
   top: 100%;
   left: 0;
@@ -228,7 +177,7 @@ body {
   line-height: 18px;
   color: #555555;
   white-space: nowrap;
-}*/
+}
 
 
 .ui-state-hover, 
@@ -243,37 +192,7 @@ body {
   -moz-border-radius: 0px;
 }
 
-
-.dropthumbnail {
-  height: 100%;
-  margin-right: 10px;
-  float:left;
-}
-
-.currentname {
-  font-weight: 300;
-  font-size: 15px;
-  -webkit-font-smoothing: subpixel-antialiased;
-}
-
-h1 {
-  font-family: 'Open Sans', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  letter-spacing: -1px;
-  font-weight: normal;
-  font-size: 1.6em;
-  color: rgb(30,30,30);
-}
-
-#player_dummy {
-  display: none;
-}
-
-.dropname {
-  font-size: 1em;
-  font-family: 'Open Sans', sans-serif;
-}
-
+/* progress bar */
 #progress {
   width:100%;
   height: 4px;
@@ -290,3 +209,96 @@ h1 {
   height: 4px;
   background-color: #777;
 }
+
+.control {
+  width: 100px;
+  margin: 0 auto;
+  padding: 10px;
+  line-height: 1.5em;
+}
+  .control_elem {
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    display: inline-block;
+    color: rgba(0,0,0,0.75);
+  }
+    .control_elem:hover {
+      color: rgba(0,0,0,1);;
+    }
+.show_player {
+  padding: 10px;
+  float: right;
+  line-height: 1.5em;
+  height: 1.5em;/*100%;*/
+  vertical-align: middle;
+}
+.show_player label {
+  font-weight: normal !important;
+}
+
+.youtube_player {
+  padding: 15px;
+  width: 100%;
+  font-size: 0px;
+}
+
+.item {
+  margin-top:5px;
+  width: 100%;
+  padding: 15px;
+  background-color: rgba(255,255,255,0.7);
+  font-family: 'Open Sans', sans-serif;
+  overflow: hidden;
+  display: block;
+  height: 100px;
+  text-overflow: ellipsis;
+}
+  .song_thumbnail {
+    display: block;
+    height: 70px;
+    width: 15%;
+    max-width: 15%;
+    float: left;
+
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+  }
+  .deets {
+    width: 65%;
+    float: left;
+    padding-left: 10px;
+    padding-right: 10px;
+    overflow: hidden;
+    line-height: 35px;
+    height: 70px;
+  }
+  .song_name {
+    font-size: 1.5em;
+    margin-left: 10px;
+    -webkit-font-smoothing: antialiased;
+  }
+  #voting {
+    width: 10%;
+    float: left;
+    font-size: 2em;
+  }
+
+  .votecount {
+    width: 10%;
+    height: 100%;
+    line-height: 70px;
+    float: right;
+    padding: auto;
+    font-size: 2em;
+  }
+
+  .upvotes_green {
+    color: rgb(25,150,10);
+  }
+  .upvotes_red {
+    color: rgb(190,10,10);
+}
+
+

@@ -29,7 +29,7 @@
 			<div class="item col-md-10" ng-repeat="item in queue | orderBy: queueSorter | limitTo: 4" id="{{item.id}}">
 				<div class="song_thumbnail" ng-style="{'background-image': 'url(' + item.thumbnail + ')'}"></div>
 				<span class="deets">
-					<div class="name">{{item.name}}</div>
+					<div class="song_name">{{item.name}}</div>
 				</span>
 
 				<div id="voting">

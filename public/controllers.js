@@ -13,7 +13,7 @@ controller('mainCtrl', ['$scope', '$location',
 		$scope.room_id = '';
 
 		$scope.join = function() {
-			$location.path('/' + $scope.room_id + '/client');
+			$location.path('/' + $scope.room_id.toUpperCase() + '/client');
 		}
 		$scope.create = function() {
 			$location.path('/new');

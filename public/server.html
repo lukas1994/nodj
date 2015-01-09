@@ -13,15 +13,17 @@
 		<div class="background"> </div>
 	</div>
 
-	<div id="main-view" class="container-fluid">
+	<div id="main-view" class="container-fluid clearfix">
 		<div class="row">
 			<div id="player_dummy"></div>
 		</div>
 
 		<div class="row">
-			<h1>Currently Playing: 
-				<span class="currentname">{{currentTrack.name}}</span>
-			</h1>
+			<div class="col-md-12">
+				<h1>Currently Playing: 
+					<span class="currentname">{{currentTrack.name}}</span>
+				</h1>
+			</div>
 		</div>
 
 		<div class="row">
@@ -32,29 +34,20 @@
 
 		<div class="row">
 			<div class="col-md-12">
-				<center>
-					<button class="control" ng-show="isPlaying" ng-click="pauseClicked()"><i class="fa fa-pause"></i></button>
-					<button class="control" ng-hide="isPlaying" ng-click="playClicked()"><i class="fa fa-play"></i></button>
-					<button class="control" ng-click="nextClicked()"><i class="fa fa-forward"></i></button>
-				</center>
-			</div>
-		</div>
-
-		<div class="row">
-			<div class="col-md-12">
-				<div align="right">
-					show player <input type="checkbox" ng-model="showPlayer">
+				<div class="show_player">
+					<label><input type="checkbox" ng-model="showPlayer" /> show player</label>
+				</div>
+				<div class="control">
+					<button class="control_elem" ng-show="isPlaying" ng-click="pauseClicked()"><i class="fa fa-pause"></i></button>
+					<button class="control_elem" ng-hide="isPlaying" ng-click="playClicked()"><i class="fa fa-play"></i></button>
+					<button class="control_elem" ng-click="nextClicked()"><i class="fa fa-forward"></i></button>
 				</div>
 			</div>
 		</div>
 
-		<br>
-
-		<div class="row">
-			<div class="col-md-12" ng-show="showPlayer">
-				<center>
-					<youtube-video player-vars="youtubePlayerVars" video-id="youtubeVideoId" player="youtubePlayer"></youtube-video>
-				</center>
+		<div class="row" ng-show="showPlayer">
+			<div class="col-md-12">
+				<youtube-video class="youtube_player" player-vars="youtubePlayerVars" video-id="youtubeVideoId" player="youtubePlayer" player-width="'100%'"></youtube-video>
 			</div>
 		</div>
 
@@ -64,7 +57,7 @@
 			<div class="item col-md-10" ng-repeat="item in queue | orderBy: queueSorter | limitTo: 4" id="{{item.id}}">
 				<div class="song_thumbnail" ng-style="{'background-image': 'url(' + item.thumbnail + ')'}"></div>
 				<span class="deets">
-					<div class="name">{{item.name}}</div>
+					<div class="song_name">{{item.name}}</div>
 				</span>
 				<span class="votecount" ng-class="{'upvotes_green': item.upvotes > item.downvotes, 'upvotes_red': item.upvotes < item.downvotes}">
 						{{item.upvotes - item.downvotes}}
