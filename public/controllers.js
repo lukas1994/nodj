@@ -7,6 +7,9 @@ controller('mainCtrl', ['$scope', '$location',
 		case 'wrong_room_id':
 			$scope.error = 'Party Id not found.';
 			break;
+		case 'connection_lost':
+			$scope.error = 'Connection to the server lost.';
+			break;
 		}
 		delete $location.$$search.error;
 
@@ -41,7 +44,7 @@ controller('serverCtrl', ['$scope', '$timeout', '$rootScope', '$routeParams', '$
 		};
 
 		$scope.isPlaying = false;
-		$scope.showPlayer = true;
+		$scope.showPlayer = false;
 		$scope.youtubeVideoId = '';
 		$scope.youtubePlayerVars = {
 			controls: 1,
@@ -91,7 +94,11 @@ controller('serverCtrl', ['$scope', '$timeout', '$rootScope', '$routeParams', '$
 
 		// sync with server
 		setInterval(function() {
-			MusicQueue.update();
+			MusicQueue.update(function(err) {
+				if (err) {
+					$location.path('/').search('error', 'connection_lost');
+				}
+			});
 		}, 1000);
 
 		$rootScope.$watch('currentTrack', function(newValue, oldValue) {
@@ -122,6 +129,7 @@ controller('clientCtrl', ['$scope', '$timeout', '$rootScope', '$routeParams', '$
 		};
 
 		$scope.upvote = function(id) {
+			console.log(id);
 			if (!!votes[id]) return;
 			MusicQueue.upvote(id);
 			votes[id] = true;
@@ -134,7 +142,11 @@ controller('clientCtrl', ['$scope', '$timeout', '$rootScope', '$routeParams', '$
 
 		// sync with server
 		setInterval(function() {
-			MusicQueue.update();
+			MusicQueue.update(function(err) {
+				if (err) {
+					$location.path('/').search('error', 'connection_lost');
+				}
+			});
 		}, 1000);
 	}
 ]);
