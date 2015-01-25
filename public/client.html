@@ -1,14 +1,18 @@
-<div id="wrapper" ng-controller="clientCtrl">	
-	<div id="header-wrap">
-		<div id="header">
-			<div id="logo"></div>
-			<span id="room-display">
-				Party: <span id="room-id">{{roomId}}</span>
-			</span>
+<div id="wrapper" class="container-fluid" ng-controller="clientCtrl">
+	<div class="row">
+		<div class="col-md-12">
+			<div id="header-wrap">
+				<div id="header">
+					<div id="logo"></div>
+					<span id="room-display">
+						Party: <span id="room-id">{{roomId}}</span>
+					</span>
+				</div>
+			</div>
 		</div>
 	</div>
 
-	<div id="main-view" class="container-fluid">
+	<div id="main-view">
 		<div class="row">
 			<h1>Currently Playing: 
 				<span class="currentname">{{currentTrack.name}}</span>

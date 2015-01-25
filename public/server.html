@@ -1,19 +1,27 @@
-<div id="wrapper" ng-controller="serverCtrl">	
-	<div id="header-wrap">
-		<div id="header">
-			<div id="logo"></div>
-			<span id="room-display">
-				Party: <span id="room-id">{{roomId}}</span>
-			</span>
+<div id="wrapper" class="container-fluid" ng-controller="serverCtrl">	
+	<div class="row">
+		<div class="col-md-12">
+			<div id="header-wrap">
+				<div id="header">
+					<div id="logo"></div>
+					<span id="room-display">
+						Party: <span id="room-id">{{roomId}}</span>
+					</span>
+				</div>
+			</div>
 		</div>
 	</div>
 
-	<div id="progress">
-		<div class="done" style="width:{{(currentTime*100)/duration}}%"> </div>
-		<div class="background"> </div>
+	<div class="row">
+		<div class="col-md-12">
+			<div id="progress">
+				<div class="done" style="width:{{(currentTime*100)/duration}}%"> </div>
+				<div class="background"> </div>
+			</div>
+		</div>
 	</div>
 
-	<div id="main-view" class="container-fluid clearfix">
+	<div id="main-view">
 		<div class="row">
 			<div id="player_dummy"></div>
 		</div>
